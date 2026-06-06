@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Products</h1>
+
+<button id="load">Load products</button>
+
+<div id="product-list"></div>
+
+<template id="product-card">
+  <div class="card">
+    <h2></h2>
+    <p class="desc"></p>
+    <p class="price"></p>
+  </div>
+</template>
+
+<script>
+const products = [
+  { name: "Shirt", description: "Blue shirt", price: "$20" },
+  { name: "Pants", description: "Jeans", price: "$40" }
+];
+
+const template = document.getElementById("product-card");
+const list = document.getElementById("product-list");
+const button = document.getElementById("load");
+
+button.addEventListener("click", () => {
+
+  products.forEach((product) => {
+    const clone = template.content.cloneNode(true);
+
+    const title = clone.querySelector("h2");
+    const desc = clone.querySelector(".desc");
+    const price = clone.querySelector(".price");
+
+    title.textContent = product.name;
+    desc.textContent = product.description;
+    price.textContent = product.price;
+
+    list.appendChild(clone);
+  });
+
+});
+</script>
+
+</body>
+</html>

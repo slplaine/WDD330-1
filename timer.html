@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Countdown</title>
+</head>
+<body>
+
+<h1 id="countdown">10</h1>
+<button id="startButton">Start</button>
+
+<script>
+let tempo = 10;
+let intervalo;
+
+const display = document.getElementById("countdown");
+const botao = document.getElementById("startButton");
+
+botao.addEventListener("click", () => {
+  tempo = 10;
+
+  intervalo = setInterval(() => {
+    tempo--;
+    display.textContent = tempo;
+
+    if (tempo === 0) {
+      clearInterval(intervalo);
+    }
+  }, 1000);
+
+  setTimeout(() => {
+    display.textContent = "Time's up!";
+  }, 10000);
+});
+</script>
+
+</body>
+</html>

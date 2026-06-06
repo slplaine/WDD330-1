@@ -7,7 +7,7 @@ loadHeaderFooter(updateCartIcon);
 
 const category = getParam("category");
 const searchQuery = getParam("search");
-const dataSource = new ProductData();
+const dataSource = new ProductData(category);
 const element = document.querySelector(".product-list");
 const listing = new ProductList(category, searchQuery, dataSource, element);
 
