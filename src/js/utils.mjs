@@ -32,11 +32,15 @@ export function getParam(param) {
   return product;
 }
 
-export function convertToJson(res) {
+export async function convertToJson(res) {
+  const jsonResponse = await res.json();
   if (res.ok) {
-    return res.json();
+    return jsonResponse;
   } else {
-    throw new Error("Bad Response");
+    throw {
+      name: 'servicesError',
+      message: jsonResponse
+    };
   }
 }
 
@@ -80,4 +84,37 @@ export async function loadHeaderFooter(callback) {
 
 export function getDiscountPercentage(originalPrice, finalPrice) {
   return Math.round(((originalPrice - finalPrice) / originalPrice) * 100);
+}
+export function alertMessage(message, scroll = true) {
+  // remove alert antigo (se existir)
+  const oldAlert = document.querySelector('.alert');
+  if (oldAlert) oldAlert.remove();
+
+  // cria elemento
+  const alert = document.createElement('div');
+  alert.classList.add('alert');
+
+  // conteúdo do alerta
+  alert.innerHTML = `
+    <span>${message}</span>
+    <button class="close-btn">X</button>
+  `;
+
+  // referência do main
+  const main = document.querySelector('main');
+
+  // botão fechar
+  alert.addEventListener('click', function (e) {
+    if (e.target.classList.contains('close-btn')) {
+      main.removeChild(alert);
+    }
+  });
+
+  // adiciona no topo
+  main.prepend(alert);
+
+  // scroll topo
+  if (scroll) {
+    window.scrollTo(0, 0);
+  }
 }

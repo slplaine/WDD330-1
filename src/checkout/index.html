@@ -1,23 +1,55 @@
 <!doctype html>
-
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sleep Outside | Checkout</title>
 
-    <title>Sleep Outside | Checkout</title>
-    <script src="../js/checkout.js" type="module"></script>
-    <link rel="stylesheet" href="/css/style.css" />
-  </head>
+  <!-- Script -->
+  <script src="../js/checkout.js" type="module"></script>
 
-  <body>
-    <header class="divider" id="main-header"></header>
-    <main class="divider">
-      <section class="products">
-        <h2>Review & Place your Order</h2>
-      </section>
-    </main>
-    <footer id="main-footer"></footer>
-  </body>
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="divider" id="main-header"></header>
+
+  <!-- MAIN -->
+  <main class="divider">
+
+    <section class="products">
+      <h2>Review & Place Your Order</h2>
+    </section>
+
+    <!-- FORM -->
+    <form id="checkoutForm">
+
+      <h3>Customer Information</h3>
+
+      <input name="fname" type="text" placeholder="First Name" required />
+      <input name="lname" type="text" placeholder="Last Name" required />
+      <input name="street" type="text" placeholder="Street Address" required />
+      <input name="city" type="text" placeholder="City" required />
+      <input name="state" type="text" placeholder="State" required />
+      <input name="zip" type="text" placeholder="Zip Code" required />
+
+      <h3>Payment Information</h3>
+
+      <input name="cardNumber" type="text" placeholder="Card Number" required />
+      <input name="expiration" type="text" placeholder="Expiration (MM/YY)" required />
+      <input name="code" type="text" placeholder="Security Code (CVV)" required />
+
+      <button type="submit">Checkout</button>
+
+    </form>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="main-footer"></footer>
+
+</body>
 </html>
